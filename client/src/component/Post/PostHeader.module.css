@@ -1,0 +1,11 @@
+.flexHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+}
+.flexSubheader{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}

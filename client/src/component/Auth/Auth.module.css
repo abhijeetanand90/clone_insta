@@ -1,16 +1,10 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
-body {
-  background-color: black;
-  color: #fff;
-  margin: 0;
-}
-img {
-  max-width: 100%;
+
+
+img{
+    max-width: 100%;
+    display: block;
+    height: auto;
 }
 
 .container {
@@ -25,7 +19,6 @@ img {
   }
 
   
-
 .flexAuth {
   display: flex;
 }
