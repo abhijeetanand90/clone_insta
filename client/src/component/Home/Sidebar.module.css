@@ -5,9 +5,11 @@
 }
 
 .sidebarContainer{
-    max-width: 220px;
-    max-height: auto;
+    /* max-width: 220px;
+    max-height: auto; */
+    width: 40%;
     padding:12px;
+    border: solid 1px limegreen;
 }
 
 

@@ -1,0 +1,20 @@
+.imgResize{
+    max-width: 32px;
+    max-height: 32px;
+    border-radius: 5px;
+
+}
+.imgName{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.Suggestionbar{
+   padding: 20px;
+    width: 60%;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -2,4 +2,5 @@
 
 .flexHome{
     display: flex;
+    max-width: 90%;
 }
