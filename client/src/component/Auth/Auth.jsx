@@ -1,5 +1,5 @@
 import styles from "./Auth.module.css";
-import Form from "../Form/Form";
+import Form from '../Form/Form'
 
 export default function Auth() {
   return (

@@ -45,11 +45,11 @@ export default function Sidebar() {
          
           <p>Notifications</p>
         </div>
-        <div className={styles.iconText}>
-            <i><CreatePostLogo /></i>
+        <Link to='/create'><div className={styles.iconText}>
+           <i><CreatePostLogo /></i>
           
           <p>Create</p>
-        </div>
+        </div></Link> 
         <div className={styles.iconText}>
             <i><LuMessageCircle size={29}/></i>
             <p>Message</p>
