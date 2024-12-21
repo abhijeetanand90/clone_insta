@@ -31,7 +31,15 @@ export const getPosts=()=>async(dispatch)=>{
 
 }
 
+export const removePost=(id)=>async(dispatch)=>{
+    try {
+        await api.deletePost(id);
+        dispatch(delete_post(id))
+    } catch (error) {
+        console.log(error)
+    }
 
+}
 
 const postsSlice=createSlice({
     name:'Posts',
@@ -48,6 +56,9 @@ const postsSlice=createSlice({
      fetch:(state, action)=>{
         state.posts=action.payload
      },
+     delete_post:(state, action)=>{
+        state.posts=state.posts.filter((post)=>post._id !== action.payload);
+     },
      
     }
 
@@ -55,6 +66,6 @@ const postsSlice=createSlice({
 
 
 
-export const {create, fetch}=postsSlice.actions;
+export const {create, fetch, delete_post}=postsSlice.actions;
 
 export default postsSlice.reducer;

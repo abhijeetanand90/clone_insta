@@ -46,9 +46,20 @@ export const getPosts = async (req, res) => {
     const postMessages = await postMessage.find();
     res.status(200).json(postMessages);
   } catch (error) {
-    res.status(404).json({ message: error.message });
+    
   }
 };
+
+
+export const deletePost=async(req,res)=>{
+  console.log("delete");
+  const { id: _id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(_id))
+    return res.status(404).send("No post with that id");
+  await postMessage.findByIdAndDelete(_id);
+}
+
+
 //  export const uploadImage=async(req,res)=>{
 //   try {
     

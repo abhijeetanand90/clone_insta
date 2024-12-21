@@ -1,6 +1,9 @@
 import styles from "./Post.module.css";
 import PostHeader from "./PostHeader";
 import PostFooter from "./PostFooter";
+import { useDispatch } from "react-redux";
+import { removePost } from "../../redux/features/postSlice";
+
 
 
 export default function Post({data}) {
@@ -10,7 +13,7 @@ export default function Post({data}) {
   // );
 
   // console.log(data.img.data.data)
-
+  const dispatch=useDispatch();
 
   const getImagePath = (imgData) => {
     try {
@@ -34,7 +37,9 @@ export default function Post({data}) {
   // Debug logging
   console.log('Image path:', imagePath);
 
-
+  function handleDelete(){
+           dispatch(removePost(data._id))
+  }
 
 
   return (
@@ -42,6 +47,7 @@ export default function Post({data}) {
       <div>
        
         <PostHeader creator={data.creator}/>
+        <button onClick={handleDelete}>delete</button>
       </div>
           
         <img src={`http://localhost:5000/uploads/${imagePath}`} alt="" />

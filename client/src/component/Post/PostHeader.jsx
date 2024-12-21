@@ -5,6 +5,9 @@ import { useState } from "react";
 
 export default function PostHeader({creator}) {
 
+
+
+
   
   return (
     <div className={styles.flexHeader}>
