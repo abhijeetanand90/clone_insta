@@ -8,7 +8,7 @@ export const postCreate=(post)=>async(dispatch)=>{
 
     try {
         const {data}=await api.createPost(post)
-        console.log(data)
+
         dispatch(create(data))
         
     } catch (error) {
@@ -22,7 +22,7 @@ export const getPosts=()=>async(dispatch)=>{
     try {
 
         const {data}= await api.fetchPosts();
-        console.log(data)
+       dispatch(fetch(data))
         
         
     } catch (error) {
@@ -43,13 +43,18 @@ const postsSlice=createSlice({
     reducers:{
         create:(state,action)=>{
             state.posts.push(action.payload)
+           
      },
+     fetch:(state, action)=>{
+        state.posts=action.payload
+     },
+     
     }
 
 })
 
 
 
-export const {create}=postsSlice.actions;
+export const {create, fetch}=postsSlice.actions;
 
 export default postsSlice.reducer;

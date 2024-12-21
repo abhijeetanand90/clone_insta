@@ -1,7 +1,11 @@
 import styles from "./PostHeader.module.css";
 import { GoKebabHorizontal } from "react-icons/go";
 
-export default function PostHeader() {
+import { useState } from "react";
+
+export default function PostHeader({creator}) {
+
+  
   return (
     <div className={styles.flexHeader}>
       <div className={styles.flexSubheader}>
@@ -9,12 +13,14 @@ export default function PostHeader() {
           <img src="./nolan.png" alt="" className={styles.imgResize} />
         </div>
         <div className={styles.namedate}>
-          <div className="username">Nolan.Chris</div>
+          <div className="username">{creator}</div>
           <div className="text">.1w</div>
         </div>
       </div>
       <div>
-        <GoKebabHorizontal size={24} />
+        <i><GoKebabHorizontal size={24} /></i>
+        
+        
       </div>
     </div>
   );

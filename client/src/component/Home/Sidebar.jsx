@@ -45,7 +45,7 @@ export default function Sidebar() {
          
           <p>Notifications</p>
         </div>
-        <Link to='/create'><div className={styles.iconText}>
+        <Link to='/posts/create'><div className={styles.iconText}>
            <i><CreatePostLogo /></i>
           
           <p>Create</p>

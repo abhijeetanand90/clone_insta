@@ -9,20 +9,25 @@ const router = express.Router();
 router.post("/create", createPost);
 router.get("/",getPosts);
 
-router.post("/upload", upload.single("image"), async (req, res) => {
-  try {
-    const newpost = new postMessage({
-      creator: "wick",
-      img: {
-        data: req.file.path,
-        contentType: req.file.mimetype,
-      },
-    });
-    await newpost.save();
-    res.status(201).json({ message: "Image uploaded successfully" });
-  } catch (error) {
-    console.log(error.message);
-  }
-});
+// router.post("/upload", upload.single("image"), async (req, res) => {
+//   console.log(req)
+//   try {
+//     const newpost = new postMessage({
+//       creator: "wick",
+//       img: {
+//         data: req.file.path,
+//         contentType: req.file.mimetype,
+//       },
+//     });
+//     await newpost.save();
+//     res.status(201).json({ message: "Image uploaded successfully" });
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// });
+
+
+
+router.post("/upload", upload.single("image"), createPost);
 
 export default router;
