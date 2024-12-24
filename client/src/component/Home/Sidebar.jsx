@@ -10,11 +10,14 @@ import {
   SearchLogo,
 } from "../../assets/constants";
 import styles from "./Sidebar.module.css";
+import { useState } from "react";
+import { useDisclosure } from '@mantine/hooks';
+import { Modal, Button } from '@mantine/core';
+import Imgform from "../CreatePost/Imgform";
+
 
 export default function Sidebar() {
-//   function handleLogout() {
-//     console.log("logout");
-//   }
+  const [opened, { open, close }] = useDisclosure(false);
 
   return (
     <div className={styles.sidebarContainer}>
@@ -26,8 +29,8 @@ export default function Sidebar() {
         </div>
 
         <div className={styles.iconText}>
-          <i >
-            <AiFillHome size={29}/>
+          <i>
+            <AiFillHome size={29} />
           </i>
 
           <p>Home</p>
@@ -41,31 +44,49 @@ export default function Sidebar() {
           <p>Search</p>
         </div>
         <div className={styles.iconText}>
-            <i> <NotificationsLogo /></i>
-         
+          <i>
+            {" "}
+            <NotificationsLogo />
+          </i>
+
           <p>Notifications</p>
         </div>
-        <Link to='/posts/create'><div className={styles.iconText}>
-           <i><CreatePostLogo /></i>
+        {/* <Link to='/posts/create' style={{textDecoration:'none',color:'white'}}> */}
+        <div className={styles.iconText} onClick={open}>
           
+          <i>
+            <CreatePostLogo />
+          </i>
+
           <p>Create</p>
-        </div></Link> 
-        <div className={styles.iconText}>
-            <i><LuMessageCircle size={29}/></i>
-            <p>Message</p>
         </div>
-        <div className={styles.iconText}> 
-          <i><RxAvatar size={29} /></i>
+        {/* </Link>  */}
+        <div className={styles.iconText}>
+          <i>
+            <LuMessageCircle size={29} />
+          </i>
+          <p>Message</p>
+        </div>
+        <div className={styles.iconText}>
+          <i>
+            <RxAvatar size={29} />
+          </i>
           <p>Profile</p>
         </div>
       </div>
 
       <div className={styles.iconText}>
-       <i><BiLogOut size={29}/></i>
-          
-          <p>Log out</p>
-       
+        <i>
+          <BiLogOut size={29} />
+        </i>
+
+        <p>Log out</p>
       </div>
+      <Modal opened={opened} onClose={close} title="Create new post" centered   size='lg'>
+         <Imgform />
+      </Modal>
+
+     
     </div>
   );
 }

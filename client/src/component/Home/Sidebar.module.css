@@ -9,7 +9,8 @@
     max-height: auto; */
     width: 40%;
     padding:12px;
-    border: solid 1px limegreen;
+    flex: 1;
+    /* border: dotted 2px limegreen; */
 }
 
 

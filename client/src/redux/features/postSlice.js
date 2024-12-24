@@ -41,6 +41,19 @@ export const removePost=(id)=>async(dispatch)=>{
 
 }
 
+
+export const updateData=(id, post)=>async(dispatch)=>{
+    
+    try {
+        const {data}=await api.updatePost(id,post);
+        // console.log(data)
+        dispatch(update(data))
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 const postsSlice=createSlice({
     name:'Posts',
     initialState:{
@@ -59,6 +72,9 @@ const postsSlice=createSlice({
      delete_post:(state, action)=>{
         state.posts=state.posts.filter((post)=>post._id !== action.payload);
      },
+     update:(state, action)=>{
+state.posts=state.posts.map((post)=>post._id===action.payload._id ? action.payload : post);
+     },
      
     }
 
@@ -66,6 +82,6 @@ const postsSlice=createSlice({
 
 
 
-export const {create, fetch, delete_post}=postsSlice.actions;
+export const {create, fetch, delete_post,update}=postsSlice.actions;
 
 export default postsSlice.reducer;

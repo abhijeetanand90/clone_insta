@@ -12,6 +12,8 @@
 .Suggestionbar{
    padding: 20px;
     width: 60%;
+    flex: 1;
+    /* border: solid 2px dodgerblue; */
 }
 .header{
     display: flex;

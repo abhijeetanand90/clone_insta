@@ -33,3 +33,6 @@ body {
   color: #ffffff; /* Bright white for emphasis */
 }
 
+.item{
+  border: dotted 2px blue;
+}

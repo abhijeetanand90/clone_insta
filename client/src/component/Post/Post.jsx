@@ -6,7 +6,7 @@ import { removePost } from "../../redux/features/postSlice";
 
 
 
-export default function Post({data}) {
+export default function Post({data, setCurrentId}) {
   
   // const base64Image = btoa(
   //   new Uint8Array(data.img).reduce((str, byte) => str + String.fromCharCode(byte), "")
@@ -48,6 +48,7 @@ export default function Post({data}) {
        
         <PostHeader creator={data.creator}/>
         <button onClick={handleDelete}>delete</button>
+        <button onClick={()=>setCurrentId(data._id)}>update</button>
       </div>
           
         <img src={`http://localhost:5000/uploads/${imagePath}`} alt="" />
