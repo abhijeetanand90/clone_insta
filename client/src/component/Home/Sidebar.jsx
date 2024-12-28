@@ -1,6 +1,6 @@
 import { AiFillHome } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LuMessageCircle } from "react-icons/lu";
 import { RxAvatar } from "react-icons/rx";
 import {
@@ -14,10 +14,22 @@ import { useState } from "react";
 import { useDisclosure } from '@mantine/hooks';
 import { Modal, Button } from '@mantine/core';
 import Imgform from "../CreatePost/Imgform";
+import { useDispatch } from "react-redux";
+import { Logout } from "../../redux/features/auth";
 
 
 export default function Sidebar() {
   const [opened, { open, close }] = useDisclosure(false);
+
+  const dispatch=useDispatch();
+  const navigate=useNavigate();
+
+
+  function handlelogout(){
+
+    dispatch(Logout());
+        navigate('/auth');
+  }
 
   return (
     <div className={styles.sidebarContainer}>
@@ -77,7 +89,7 @@ export default function Sidebar() {
 
       <div className={styles.iconText}>
         <i>
-          <BiLogOut size={29} />
+          <BiLogOut size={29}  onClick={handlelogout}/>
         </i>
 
         <p>Log out</p>

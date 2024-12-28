@@ -21,4 +21,22 @@ img{
   
 .flexAuth {
   display: flex;
+  /* border: 2px solid limegreen; */
+  justify-content: center;
+  gap:15px;
+  align-items: center;
+}
+.item2{
+  border: 2px solid white;
+  flex:0 1 350px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+a {
+  margin-left: 5px; /* Small space between text and link */
+  color: #0095f6; /* Instagram blue */
+  text-decoration: none; /* Remove underline */
+  font-weight: 600; /* Slightly bold for emphasis */
 }

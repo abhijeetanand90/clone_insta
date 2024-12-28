@@ -36,3 +36,8 @@ body {
 .item{
   border: dotted 2px blue;
 }
+
+a {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Inherits text color from parent */
+}

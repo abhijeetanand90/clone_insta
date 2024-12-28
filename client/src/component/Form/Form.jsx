@@ -1,9 +1,10 @@
 import styles from "./Form.module.css";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-import { Auth } from "../../redux/features/auth";
+import { Auth, SignIN } from "../../redux/features/auth";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 
 
@@ -17,12 +18,13 @@ export default function Form() {
 
   const dispatch=useDispatch();
   const navigate=useNavigate();
+  // const[Password, setPassword]=useState(' ');
+  // const[email, setEmail]=useState('');
+  const[credential, setCredential]=useState({
+    email:" ",
+    password:" "
 
-  function handleSubmit(e) {
-    e.preventDefault();
- 
-    console.log("submit");
-  }
+  });
 
 
   const googleSuccess=(res)=>{
@@ -39,6 +41,26 @@ export default function Form() {
   }
 
 
+  function handleChange(e) {
+    const {value, name} = e.target;
+    setCredential({ ...credential, [name]: value });
+    // console.log("submit login");
+  
+  }
+  
+  function handleSubmit(e) {
+    e.preventDefault();
+
+        dispatch(SignIN(credential, navigate))
+        console.log('login-sbmit')
+        console.log(credential)
+ 
+    
+  }
+
+  
+
+  
 
   return (
     <div>
@@ -48,8 +70,8 @@ export default function Form() {
           alt=""
           className={styles.instagramlogo}
         />
-        <input placeholder="Phone number, username or email address" />
-        <input placeholder="Password" />
+        <input placeholder="Phone number, username or email address" name="email" value={credential.email} onChange={handleChange} />
+        <input placeholder="Password" value={credential.password} name="password" onChange={handleChange} />
         <button type="submit" className={styles.btnlogin}>
           Log in
         </button>

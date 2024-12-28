@@ -17,6 +17,8 @@ img {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  /* border: 2px solid wheat; */
+  padding: 30px;
 }
 .instagramlogo {
   /* this is how to set a image to a fixed height responsively */

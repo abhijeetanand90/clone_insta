@@ -35,7 +35,7 @@ export default function Post({data, setCurrentId}) {
   const imagePath = data.img ? getImagePath(data.img) : null;
 
   // Debug logging
-  console.log('Image path:', imagePath);
+  // console.log('Image path:', imagePath);
 
   function handleDelete(){
            dispatch(removePost(data._id))
