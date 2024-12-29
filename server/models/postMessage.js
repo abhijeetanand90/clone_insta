@@ -4,6 +4,7 @@ import { type } from "os";
 
 const postSchema=mongoose.Schema({
     creator:String,
+    userid:String,
     postedAt:{
         type:Date,
         default: new Date(),

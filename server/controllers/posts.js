@@ -25,6 +25,7 @@ export const createPost = async (req, res) => {
   const newpost = new postMessage({
     ...post,
     creator: post.creator,
+    userid:req.userId,
     img:{
       data: req.file.path,
       contentType: req.file.mimetype,
@@ -55,7 +56,7 @@ export const deletePost=async(req,res)=>{
   console.log("delete");
   const { id: _id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(_id))
-    return res.status(404).send("No post with that id");
+    return res.status(404)
   await postMessage.findByIdAndDelete(_id);
 }
 
