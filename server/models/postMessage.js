@@ -9,6 +9,10 @@ const postSchema=mongoose.Schema({
         type:Date,
         default: new Date(),
     },
+    likes:{
+        type:[String], // This indicates that `likes` is an array of strings.
+        default:[],       // The default value is an empty array, meaning no likes initially.
+    },
     img:{data:Buffer,contentType: String},
     // desctiption:String,
 })

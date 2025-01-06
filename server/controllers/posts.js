@@ -89,3 +89,35 @@ export const updatePost=async(req,res)=>{
 
 }
 
+export const likePost=async(req, res)=>{
+  try {
+    const {id}=req.params;
+    if(!req.userId) return res.json({Message: 'Unauthenticated'});
+    if (!mongoose.Types.ObjectId.isValid(id))
+      return res.status(404).send("No post with that id");
+    const post = await postMessage.findById(id);
+
+    const index=post.likes.findIndex((id)=> id=== String(req.userId));
+
+    if(index===-1){
+      post.likes.push(req.userId);
+    }
+    else{
+      post.likes=post.likes.filter((id)=>  id !== String(req.userId));
+    }
+
+    const updatedPost = await postMessage.findByIdAndUpdate(
+      id,
+      post,
+      { new: true }  //By default: Mongoose returns the original document (before the update)
+                      //With new: true: Mongoose returns the updated document after the update operation is complete.
+    );
+    res.json(updatedPost);
+
+
+    
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+

@@ -24,7 +24,7 @@ useEffect(()=>{
 },[])
 
 
-
+console.log(data)
   
 
   const dispatch = useDispatch();
@@ -80,7 +80,7 @@ useEffect(()=>{
       <img src={`http://localhost:5000/uploads/${imagePath}`} alt="" />
 
       <div>
-        <PostFooter />
+        <PostFooter data={data} />
       </div>
     </div>
   );
