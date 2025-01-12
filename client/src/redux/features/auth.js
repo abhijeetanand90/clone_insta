@@ -32,7 +32,7 @@ export const Register=(formData, navigate)=>async(dispatch)=>{
 
   try {
     const {data}=await api.signup(formData);
-    console.log(data)
+    
     dispatch(Auth(data))
     navigate('/')
   } catch (error) {
@@ -53,7 +53,7 @@ const authSlice = createSlice({
 
   reducers: {
     Auth: (state, action) => {
-      console.log('action.payload')
+      
       localStorage.setItem("user", JSON.stringify({ ...action.payload }));
       state.authData = action.payload;
     },

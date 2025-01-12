@@ -32,7 +32,7 @@ export const removePost = (id) => async (dispatch) => {
 export const updateData = (id, post) => async (dispatch) => {
   try {
     const { data } = await api.updatePost(id, post);
-    // console.log(data)
+    
     dispatch(update(data));
   } catch (error) {
     console.log(error);

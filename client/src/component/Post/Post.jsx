@@ -24,7 +24,7 @@ useEffect(()=>{
 },[])
 
 
-console.log(data)
+
   
 
   const dispatch = useDispatch();
@@ -77,7 +77,7 @@ console.log(data)
         )}
       </div>
 
-      <img src={`http://localhost:5000/uploads/${imagePath}`} alt="" />
+      <img src={`${import.meta.env.VITE_API_BASE_URL}/uploads/${imagePath}`} alt="" />
 
       <div>
         <PostFooter data={data} />

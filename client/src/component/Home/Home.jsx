@@ -2,9 +2,10 @@ import Sidebar from "./Sidebar"
 import Posts from "../Posts/Posts"
 import Suggestionbar from "./Suggestionbar"
 import styles from './Home.module.css'
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
 import { getPosts } from "../../redux/features/postSlice"
 import { useDispatch } from "react-redux";
+
 
 
 
@@ -13,6 +14,8 @@ export default function Home() {
 
   const[currentId, setCurrentId]=useState(0)
 
+
+  
 useEffect(()=>{
 dispatch(getPosts())
 },[dispatch]);
